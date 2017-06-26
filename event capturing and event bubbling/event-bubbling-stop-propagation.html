@@ -41,8 +41,12 @@
   	  (function(){
   	  	 var y=i;
          elements[y].addEventListener("click",function(event){
-  		   console.log(elements[y])	  		   
-  		},true);
+  		   console.log(elements[y])	
+  		  //we are stopping the event on second div from propagating further 
+  		  if(y == 2){
+  		  	event.stopPropagation();
+  		  }
+  		},false);
   	  })();	
   		
   	}

@@ -41,8 +41,24 @@
   	  (function(){
   	  	 var y=i;
          elements[y].addEventListener("click",function(event){
-  		   console.log(elements[y])	  		   
+  		   console.log(elements[y])	
+         //even though we are stopping the event in capturing phase at second div
+         //stopPropagation completely stops the event from propagating
+         //so there will be no event in bubbling phase
+         if(y === 2){
+          event.stopPropagation();
+         }
   		},true);
+  	  })();	
+  		
+  	}
+
+  	for(var i=0;i<elements.length;i++){
+  	  (function(){
+  	  	 var y=i;
+         elements[y].addEventListener("click",function(event){
+  		   console.log(elements[y])	
+  		},false);
   	  })();	
   		
   	}

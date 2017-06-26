@@ -41,7 +41,11 @@
   	  (function(){
   	  	 var y=i;
          elements[y].addEventListener("click",function(event){
-  		   console.log(elements[y])	  		   
+  		   console.log(elements[y])	
+  		   //We are stopping the clcik event on second div from propagating further
+  		   if(y === 2){
+  		   	event.stopPropagation();
+  		   }
   		},true);
   	  })();	
   		
